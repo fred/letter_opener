@@ -65,5 +65,30 @@ describe LetterOpener::DeliveryMethod do
     text.should include("Hello")
     text.should include("World!")
   end
+
+  it "shows reply-to, bcc and cc" do
+    Launchy.should_receive(:open)
+    mail = Mail.new do
+      from    'foo@example.com'
+      to      'bar@example.com'
+      cc      'cc@example.com'
+      bcc     'bcc@example.com'
+      reply_to 'reply@example.com'
+      subject 'Hello'
+      body    'World!'
+    end
+
+    mail.deliver!
+
+    text = File.read(Dir["#{@location}/*/plain.html"].first)
+    text.should include("foo@example.com")
+    text.should include("bar@example.com")
+    text.should include("reply@example.com")
+    text.should include("bcc@example.com")
+    text.should include("cc@example.com")
+    text.should include("Hello")
+    text.should include("World!")
+  end
+
 end
 
