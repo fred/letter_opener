@@ -70,17 +70,17 @@
     <dt>To:</dt>
     <dd><%= mail.to.join(", ") %></dd>
 
-    <% if mail.cc.present? %>
+    <% if mail.cc %>
     <dt>CC:</dt>
     <dd><%= mail.cc.join(", ") %></dd>
     <% end %>
 
-    <% if mail.bcc.present? %>
+    <% if mail.bcc %>
     <dt>BCC:</dt>
     <dd><%= mail.bcc.join(", ") %></dd>
     <% end %>
 
-    <% if mail.reply_to.present? %>
+    <% if mail.reply_to %>
     <dt>Reply-To:</dt>
     <dd><%= mail.reply_to.join(", ") %></dd>
     <% end %>
