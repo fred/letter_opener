@@ -72,17 +72,17 @@
 
     <% if mail.cc %>
     <dt>CC:</dt>
-    <dd><%= mail.cc.to_s %></dd>
+    <dd><%= mail.cc.join(", ") %></dd>
     <% end %>
 
     <% if mail.bcc %>
     <dt>BCC:</dt>
-    <dd><%= mail.bcc.to_s %></dd>
+    <dd><%= mail.bcc.join(", ") %></dd>
     <% end %>
 
     <% if mail.reply_to %>
     <dt>Reply-To:</dt>
-    <dd><%= mail.reply_to.to_s %></dd>
+    <dd><%= mail.reply_to.join(", ") %></dd>
     <% end %>
   </dl>
 
