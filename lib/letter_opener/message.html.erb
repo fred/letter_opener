@@ -6,9 +6,10 @@
     top: 0px;
     left: 0;
     width: 100%;
-    height: 90px;
+    height: 85px;
     padding: 5px 0 5px 0;
-    margin: 0 0 20px 0;
+    margin: 0;
+    margin-bottom:20px;
     background: #fff;
     font-size: 12px;
     font-family: "Lucida Grande";
@@ -68,6 +69,21 @@
 
     <dt>To:</dt>
     <dd><%= mail.to.join(", ") %></dd>
+
+    <% if mail.cc %>
+    <dt>CC:</dt>
+    <dd><%= mail.cc.to_s %></dd>
+    <% end %>
+
+    <% if mail.bcc %>
+    <dt>BCC:</dt>
+    <dd><%= mail.bcc.to_s %></dd>
+    <% end %>
+
+    <% if mail.reply_to %>
+    <dt>Reply-To:</dt>
+    <dd><%= mail.reply_to.to_s %></dd>
+    <% end %>
   </dl>
 
   <% if mail.multipart? %>
